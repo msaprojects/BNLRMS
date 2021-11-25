@@ -1,29 +1,35 @@
 <template>
   <div id="app">
-    <Dashboard v-if="settings == true" />
+    <Login v-if="settings == true"/>
   </div>
 </template>
 
 <script>
-import Dashboard from "./components/Dashboard/dashboard.vue";
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+import Login from './components/Login/login.vue'
+
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    Dashboard,
+    Login
   },
   data() {
-    return { settings: false };
+      return {
+          settings: false
+      }
   },
   mounted() {
-    console.log("mounted!");
-    this.settings = true;
+    console.log("I am in mounted!!!")
+    this.settings = true
   },
-  setup() {
-    console.log("setup!");
-  },
-};
+  setup () {
+    console.log("I am in setup!!!")
+  }
+}
 </script>
 
 <style>
-@import "./assets/styles/global.css";
+  @import './assets/styles/global.css';
 </style>

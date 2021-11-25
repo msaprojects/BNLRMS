@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div>
         <h2>Pengguna</h2>
         <table class="table table-bordered">
             <thead>
@@ -19,8 +19,8 @@
         </table>
     </div>
 </template>
-
 <script>
+console.log('Pengguna added');
 export default {
     nama: 'Pengguna',
     props: ['pengguna']

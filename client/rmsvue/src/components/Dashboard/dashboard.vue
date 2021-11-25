@@ -1,32 +1,56 @@
 <template>
-    <div class="hello">
-        <Header/>
-        <!-- <div class="row mrgnbtm">
-            <Pengguna v-if="pengguna.length > 0" : pengguna="pengguna"/>
-        </div> -->
-    </div>
+  <v-card
+    height="100%"
+    width="256"
+    class="mx-auto"
+  >
+    <v-navigation-drawer permanent>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h6">
+            Application
+          </v-list-item-title>
+          <v-list-item-subtitle>
+            subtext
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list
+        dense
+        nav
+      >
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+  </v-card>
 </template>
 
 <script>
-import Header from '../Header/header.vue'
-import Pengguna from '../Pengguna/pengguna.vue'
-import {getAllPengguna} from '../../utils/services/penggunaService'
-export default {
-    name: 'Dashboard',
-    component: {
-        Header, Pengguna
-    }, data(){
-        return{
-            pengguna:[]
-        }
+  export default {
+    data () {
+      return {
+        items: [
+          { title: 'Dashboard', icon: 'mdi-view-dashboard' },
+          { title: 'Photos', icon: 'mdi-image' },
+          { title: 'About', icon: 'mdi-help-box' },
+        ],
+        right: null,
+      }
     },
-    methods: {
-        getAllPengguna(){getAllPengguna().then(response => {
-            console.log(response)
-            this.pengguna = response['data']
-        })}
-    },mounted() {
-        this.getAllPengguna()
-    },
-}
+  }
 </script>
