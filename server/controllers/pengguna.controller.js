@@ -262,7 +262,7 @@ async function addPengguna(req, res) {
                                                             })
                                                         })
                                                     } else {
-                                                        return res.status(200).send({
+                                                        return res.status(201).send({
                                                             message: "Done!,  Data has been stored!",
                                                             error: null,
                                                             data: null
